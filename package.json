@@ -1,0 +1,20 @@
+{
+  "name": "@zhg-x/common-utils",
+  "version": "0.0.2",
+  "description": "common js utils",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/common-utils/common-utils.git"
+  },
+  "keywords": [
+    "ts",
+    "js",
+    "utils"
+  ],
+  "author": "zhg-x",
+  "license": "ISC"
+}
