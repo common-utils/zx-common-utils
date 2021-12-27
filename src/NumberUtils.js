@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NumberUtils = exports.calcDiv = exports.calcMul = exports.calcSub = exports.calcAdd = exports.add = exports.numberCheck = void 0;
+exports.Options = exports.NumberUtils = exports.calcDiv = exports.calcMul = exports.calcSub = exports.calcAdd = exports.add = exports.numberCheck = void 0;
 /**
  * number 数字检查
  * @Description 1. 如果options.transformFlag值为true且参数值为null、undefined、空字符串时，则将参数值转换为数字0，否则不做转换；
@@ -200,3 +200,4 @@ var Options = /** @class */ (function () {
     }
     return Options;
 }());
+exports.Options = Options;

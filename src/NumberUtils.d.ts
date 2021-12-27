@@ -68,10 +68,9 @@ export declare class NumberUtils {
     static calcDiv(arg1: any, arg2: any, options?: Options): number;
 }
 /** 参数转换配置类 */
-declare class Options {
+export declare class Options {
     /**
      * 参数是否需要进行转换，如果该属性值为true，则在后续检查中判断参数的布尔值是否为false，若为false，则将其转换为数字0
      */
     transformFlag?: boolean;
 }
-export {};
