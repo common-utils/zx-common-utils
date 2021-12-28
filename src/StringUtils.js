@@ -20,6 +20,8 @@ function convertToStr(arg) {
         var argType = Object.prototype.toString.call(arg); // "[object Number]"
         argType = argType.substring(8, argType.length - 1);
         switch (argType) {
+            case 'String':
+                break;
             case 'Number':
             case 'Null':
             case 'Undefined':
@@ -29,9 +31,9 @@ function convertToStr(arg) {
                 arg = JSON.stringify(arg);
                 break;
             case 'Array':
-                throw Error('Conversion of array types is not supported.');
+            case 'Function':
             default:
-                break;
+                throw new Error('Conversion of array types is not supported.');
         }
     }
     catch (e) {
