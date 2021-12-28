@@ -13,3 +13,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./src/StringUtils"), exports);
 __exportStar(require("./src/ArrayUtils"), exports);
 __exportStar(require("./src/NumberUtils"), exports);
+__exportStar(require("./src/DateUtils"), exports);

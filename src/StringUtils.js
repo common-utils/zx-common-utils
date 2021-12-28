@@ -17,8 +17,7 @@ exports.StringUtils = exports.strIsEqual = exports.convertToStr = void 0;
  */
 function convertToStr(arg) {
     try {
-        var argType = Object.prototype.toString.call(arg); // "[object Number]"
-        argType = argType.substring(8, argType.length - 1);
+        var argType = Object.prototype.toString.call(arg).slice(8, -1);
         switch (argType) {
             case 'String':
                 break;
