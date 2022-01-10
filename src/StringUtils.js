@@ -17,7 +17,7 @@ exports.StringUtils = exports.strIsEqual = exports.convertToStr = void 0;
  */
 function convertToStr(arg) {
     try {
-        var argType = Object.prototype.toString.call(arg).slice(8, -1);
+        const argType = Object.prototype.toString.call(arg).slice(8, -1);
         switch (argType) {
             case 'String':
                 break;
@@ -36,7 +36,7 @@ function convertToStr(arg) {
         }
     }
     catch (e) {
-        console.error("An error occurred while converting a variable type.");
+        console.error(`An error occurred while converting a variable type.`);
     }
     return arg;
 }
@@ -54,12 +54,9 @@ function strIsEqual(arg1, arg2) {
     return arg1 === arg2;
 }
 exports.strIsEqual = strIsEqual;
-var StringUtils = /** @class */ (function () {
-    function StringUtils() {
-    }
-    StringUtils.strIsEqual = function (arg1, arg2) {
+class StringUtils {
+    static strIsEqual(arg1, arg2) {
         return strIsEqual(arg1, arg2);
-    };
-    return StringUtils;
-}());
+    }
+}
 exports.StringUtils = StringUtils;

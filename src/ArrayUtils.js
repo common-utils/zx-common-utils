@@ -22,12 +22,9 @@ function arrayCheck(arr) {
     }
 }
 exports.arrayCheck = arrayCheck;
-var ArrayUtils = /** @class */ (function () {
-    function ArrayUtils() {
-    }
-    ArrayUtils.arrayCheck = function (arr) {
+class ArrayUtils {
+    static arrayCheck(arr) {
         return arrayCheck(arr);
-    };
-    return ArrayUtils;
-}());
+    }
+}
 exports.ArrayUtils = ArrayUtils;

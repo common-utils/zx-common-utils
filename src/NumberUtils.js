@@ -13,7 +13,7 @@ function numberCheck(arg, options) {
     if (options && options.transformFlag && !arg) {
         arg = 0;
     }
-    var pattern = /^(\-|\+)?\d+(\.\d+)?$/; // 正则匹配正数、负数、小数
+    const pattern = /^(\-|\+)?\d+(\.\d+)?$/; // 正则匹配正数、负数、小数
     /* 将参数转换成string类型再进行正则匹配，否则会发生一些错误
      * pattern.test(-.1)        // true，console.log(-.1) 输出 -0.1
      * pattern.test('-.1')      // false
@@ -36,7 +36,7 @@ exports.numberCheck = numberCheck;
 function add(arg1, arg2, options) {
     arg1 = numberCheck(arg1, options);
     arg2 = numberCheck(arg2, options);
-    var r1, r2, m;
+    let r1, r2, m;
     try {
         r1 = arg1.toString().split('.')[1].length;
     }
@@ -60,8 +60,8 @@ exports.add = add;
  * @returns 所有参数的和 {number}
  */
 function calcAdd(args, options) {
-    var sum = 0;
-    args.forEach(function (p) {
+    let sum = 0;
+    args.forEach(p => {
         sum = add(sum, p, options);
     });
     return sum;
@@ -77,7 +77,7 @@ exports.calcAdd = calcAdd;
 function calcSub(arg1, arg2, options) {
     arg1 = numberCheck(arg1, options);
     arg2 = numberCheck(arg2, options);
-    var r1, r2, m, n;
+    let r1, r2, m, n;
     try {
         r1 = arg1.toString().split('.')[1].length;
     }
@@ -93,7 +93,7 @@ function calcSub(arg1, arg2, options) {
     m = Math.pow(10, Math.max(r1, r2));
     // 动态控制精度长度
     n = (r1 >= r2) ? r1 : r2;
-    var result = ((arg1 * m - arg2 * m) / m).toFixed(n);
+    const result = ((arg1 * m - arg2 * m) / m).toFixed(n);
     return Number(result);
 }
 exports.calcSub = calcSub;
@@ -110,8 +110,8 @@ function calcMul(arg1, arg2, options) {
     if (!arg1 || !arg2) {
         return 0;
     }
-    var m = 0;
-    var s1 = arg1.toString(), s2 = arg2.toString();
+    let m = 0;
+    const s1 = arg1.toString(), s2 = arg2.toString();
     try {
         m += s1.split('.')[1].length;
     }
@@ -135,7 +135,7 @@ exports.calcMul = calcMul;
 function calcDiv(arg1, arg2, options) {
     arg1 = numberCheck(arg1, options);
     arg2 = numberCheck(arg2, options);
-    var c, d, e = 0, f = 0;
+    let c, d, e = 0, f = 0;
     try {
         e = arg1.toString().split('.')[1].length;
     }
@@ -160,44 +160,40 @@ exports.calcDiv = calcDiv;
  * @Author zhg-x
  * @Created time  2021-12-22
  */
-var NumberUtils = /** @class */ (function () {
-    function NumberUtils() {
-    }
+class NumberUtils {
     /** number数字检查 */
-    NumberUtils.numberCheck = function (arg, options) {
+    static numberCheck(arg, options) {
         return numberCheck(arg, options);
-    };
+    }
     /** 两数求和 */
-    NumberUtils.add = function (arg1, arg2, options) {
+    static add(arg1, arg2, options) {
         return add(arg1, arg2, options);
-    };
+    }
     /** 数字数组求和 */
-    NumberUtils.calcAdd = function (args, options) {
+    static calcAdd(args, options) {
         return calcAdd(args, options);
-    };
+    }
     /** 两数相减 */
-    NumberUtils.calcSub = function (arg1, arg2, options) {
+    static calcSub(arg1, arg2, options) {
         return calcSub(arg1, arg2, options);
-    };
+    }
     /** 两数相乘 */
-    NumberUtils.calcMul = function (arg1, arg2, options) {
+    static calcMul(arg1, arg2, options) {
         return calcMul(arg1, arg2, options);
-    };
+    }
     /** 两数相除 */
-    NumberUtils.calcDiv = function (arg1, arg2, options) {
+    static calcDiv(arg1, arg2, options) {
         return calcDiv(arg1, arg2, options);
-    };
-    return NumberUtils;
-}());
+    }
+}
 exports.NumberUtils = NumberUtils;
 /** 参数转换配置类 */
-var Options = /** @class */ (function () {
-    function Options() {
+class Options {
+    constructor() {
         /**
          * 参数是否需要进行转换，如果该属性值为true，则在后续检查中判断参数的布尔值是否为false，若为false，则将其转换为数字0
          */
         this.transformFlag = true;
     }
-    return Options;
-}());
+}
 exports.Options = Options;
