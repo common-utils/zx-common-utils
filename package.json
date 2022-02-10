@@ -1,6 +1,6 @@
 {
   "name": "@zhg-x/common-utils",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "common js utils",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
     "type": "git",
     "url": "https://gitee.com/common-utils/zx-common-utils.git"
   },
+  "homepage": "https://zhg-x.github.io/docs/#/utils-docs/",
   "keywords": [
     "ts",
     "js",

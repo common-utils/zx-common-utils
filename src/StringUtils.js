@@ -16,27 +16,23 @@ exports.StringUtils = exports.strIsEqual = exports.convertToStr = void 0;
  * @Created time  2021-12-27
  */
 function convertToStr(arg) {
-    try {
-        const argType = Object.prototype.toString.call(arg).slice(8, -1);
-        switch (argType) {
-            case 'String':
-                break;
-            case 'Number':
-            case 'Null':
-            case 'Undefined':
-                arg = String(arg);
-                break;
-            case 'Object':
-                arg = JSON.stringify(arg);
-                break;
-            case 'Array':
-            case 'Function':
-            default:
-                throw new Error('Conversion of array types is not supported.');
-        }
-    }
-    catch (e) {
-        console.error(`An error occurred while converting a variable type.`);
+    const argType = Object.prototype.toString.call(arg).slice(8, -1);
+    switch (argType) {
+        case 'String':
+            break;
+        case 'Number':
+        case 'Null':
+        case 'Undefined':
+            arg = String(arg);
+            break;
+        case 'Object':
+            arg = JSON.stringify(arg);
+            break;
+        case 'Array':
+        case 'Function':
+        default:
+            console.warn(`convertToStr() => Parameters of Array and Function types are not converted.`);
+            break;
     }
     return arg;
 }
@@ -55,6 +51,11 @@ function strIsEqual(arg1, arg2) {
 }
 exports.strIsEqual = strIsEqual;
 class StringUtils {
+    /** 将变量转换成对应的字符串形式*/
+    static convertToStr(arg) {
+        return convertToStr(arg);
+    }
+    /** 比较两个值是否相等 */
     static strIsEqual(arg1, arg2) {
         return strIsEqual(arg1, arg2);
     }

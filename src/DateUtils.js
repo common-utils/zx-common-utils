@@ -1,10 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DateUtils = exports.dateFormat = exports.getDatesFromDateRange = exports.getDateOfInterval = void 0;
+exports.DateUtils = exports.dateFormat = exports.getDatesFromDateRange = exports.getDateOfInterval = exports.isDate = void 0;
+/**
+ * 校验参数是否为Date类型
+ * @param arg {any} 参数
+ * @Returns {boolean} true / false
+ */
+function isDate(arg) {
+    return Object.prototype.toString.call(arg).slice(8, -1) === 'Date';
+}
+exports.isDate = isDate;
 /**
  * 获取基础日期的间隔日期
  * @param interval {number} 间隔天数，正数则返回基础日期之后的日期，负数则返回基础日期之前的日期
- * @param baseDate {Date | null} 基础日期，如果不传或者传null，则默认为今天
+ * @param baseDate {Date|null} null,基础日期，如果不传或者传null，则默认为今天
  * @returns {Date} 新的Date对象
  */
 function getDateOfInterval(interval, baseDate = null) {
@@ -25,6 +34,9 @@ exports.getDateOfInterval = getDateOfInterval;
  * @returns {Array<Date>} 日期数组
  */
 function getDatesFromDateRange(startDate, endDate) {
+    if (!isDate(startDate) || !isDate(endDate)) {
+        throw new TypeError('argument type must be Date');
+    }
     const dateRange = [];
     while ((endDate.getTime() - startDate.getTime()) >= 0) {
         const d = new Date(startDate.getTime()); // 以开始日期为基础日期创建一个新的日期对象
@@ -82,6 +94,10 @@ exports.dateFormat = dateFormat;
  * @Modified time 2021-12-28
  */
 class DateUtils {
+    /** 检验参数是否为Date类型 */
+    static isDate(arg) {
+        return isDate(arg);
+    }
     /** 获取基础日期的间隔日期 */
     static getDateOfInterval(interval, baseDate) {
         return getDateOfInterval(interval, baseDate);

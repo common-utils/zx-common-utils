@@ -22,5 +22,8 @@ export declare function convertToStr(arg: any): string;
  */
 export declare function strIsEqual(arg1: any, arg2: any): boolean;
 export declare class StringUtils {
+    /** 将变量转换成对应的字符串形式*/
+    static convertToStr(arg: any): string;
+    /** 比较两个值是否相等 */
     static strIsEqual(arg1: any, arg2: any): boolean;
 }

@@ -1,7 +1,13 @@
 /**
+ * 校验参数是否为Date类型
+ * @param arg {any} 参数
+ * @Returns {boolean} true / false
+ */
+export declare function isDate(arg: any): boolean;
+/**
  * 获取基础日期的间隔日期
  * @param interval {number} 间隔天数，正数则返回基础日期之后的日期，负数则返回基础日期之前的日期
- * @param baseDate {Date | null} 基础日期，如果不传或者传null，则默认为今天
+ * @param baseDate {Date|null} null,基础日期，如果不传或者传null，则默认为今天
  * @returns {Date} 新的Date对象
  */
 export declare function getDateOfInterval(interval: number, baseDate?: Date | null): Date;
@@ -40,6 +46,8 @@ export declare function dateFormat(date: Date, fmt?: string): string;
  * @Modified time 2021-12-28
  */
 export declare class DateUtils {
+    /** 检验参数是否为Date类型 */
+    static isDate(arg: any): boolean;
     /** 获取基础日期的间隔日期 */
     static getDateOfInterval(interval: number, baseDate: Date | null): Date;
     /** 获取时间范围内的日期，包括开始日期和结束日期 */
