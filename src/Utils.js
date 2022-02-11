@@ -135,6 +135,8 @@ function initCloneObj(object) {
             return regexpObj;
         case 'object':
             return {};
+        case 'array':
+            return [];
         default:
             return object;
     }
